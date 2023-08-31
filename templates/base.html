@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>
+        {% if isIndex %}
+            横書き青空文庫
+        {% else %}
+            {% block title %}{% endblock %} - 横書き青空文庫
+        {% endif %}
+    </title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="any">
+    <link rel="icon" href="{{ url_for('static', filename='icon.svg') }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Linearicons-Free-v1.0.0/Web Font/style.css') }}">
+    {% block links %}{% endblock %}
+</head>
+<body class="body" ontouchstart="">
+    {% block content %}{% endblock %}
+
+{% block script %}{% endblock %}
+</body>
+</html>

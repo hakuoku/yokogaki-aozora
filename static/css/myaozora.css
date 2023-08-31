@@ -1,0 +1,202 @@
+.notes {
+  font-size: smaller;
+}
+.gaiji_list {
+  margin-left: 3em;
+}
+.keigakomi {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+  padding-left: 1em;
+}
+.futoji {
+  font-weight: bold;
+}
+.shatai {
+  font-style: italic;
+}
+.underline_solid {
+  font-style: normal;
+  text-decoration: underline solid;
+}
+.underline_double {
+  font-style: normal;
+  text-decoration: underline double;
+}
+.underline_dotted {
+  font-style: normal;
+  text-decoration: underline dotted;
+}
+.underline_dashed {
+  font-style: normal;
+  text-decoration: underline dashed;
+}
+.underline_wave {
+  font-style: normal;
+  text-decoration: underline wavy;
+}
+.overline_solid  {
+  font-style: normal;
+  text-decoration: overline solid;
+}
+.overline_double {
+  font-style: normal;
+  text-decoration: overline double;
+}
+.overline_dotted {
+  font-style: normal;
+  text-decoration: overline dotted;
+}
+.overline_dashed {
+  font-style: normal;
+  text-decoration: overline dashed;
+}
+.overline_wave {
+  font-style: normal;
+  text-decoration: overline wavy;
+}
+.sesame_dot {
+  font-style: normal;
+  text-emphasis-style: filled sesame;
+}
+.white_sesame_dot {
+  font-style: normal;
+  text-emphasis-style: open sesame;
+}
+.black_circle {
+  font-style: normal;
+  text-emphasis-style: filled circle;
+}
+.white_circle {
+  font-style: normal;
+  text-emphasis-style: open circle;
+}
+.black_up-pointing_triangle {
+  font-style: normal;
+  text-emphasis-style: filled triangle;
+}
+.white_up-pointing_triangle {
+  font-style: normal;
+  text-emphasis-style: open triangle;
+}
+.bullseye {
+  font-style: normal;
+  text-emphasis-style: open double-circle;
+}
+.fisheye {
+  font-style: normal;
+  text-emphasis-style: filled double-circle;
+}
+.saltire {
+  font-style: normal;
+  text-emphasis-style: '×';
+}
+.sesame_dot_after {
+  font-style: normal;
+  text-emphasis-style: filled sesame;
+  text-emphasis-position: under left;
+}
+.white_sesame_dot_after {
+  font-style: normal;
+  text-emphasis-style: open sesame;
+  text-emphasis-position: under left;
+}
+.black_circle_after {
+  font-style: normal;
+  text-emphasis-style: filled circle;
+  text-emphasis-position: under left;
+}
+.white_circle_after {
+  font-style: normal;
+  text-emphasis-style: open circle;
+  text-emphasis-position: under left;
+}
+.black_up-pointing_triangle_after {
+  font-style: normal;
+  text-emphasis-style: filled triangle;
+  text-emphasis-position: under left;
+}
+.white_up-pointing_triangle_after {
+  font-style: normal;
+  text-emphasis-style: open triangle;
+  text-emphasis-position: under left;
+}
+.bullseye_after {
+  font-style: normal;
+  text-emphasis-style: open double-circle;
+  text-emphasis-position: under left;
+}
+.fisheye_after {
+  font-style: normal;
+  text-emphasis-style: filled double-circle;
+  text-emphasis-position: under left;
+}
+.saltire_after {
+  font-style: normal;
+  text-emphasis-style: '×';
+  text-emphasis-position: under left;
+}
+.subscript {
+  font-size: smaller;
+}
+.superscript {
+  font-size: smaller;
+}
+.kaeriten {
+  font-size: smaller;
+}
+.okurigana {
+  font-size: smaller;
+}
+
+.main h1, .main h2 {
+  font-weight: normal;
+  font-size: 1.2em;
+}
+.main h3, .main h4, .main h5 {
+  font-weight: normal;
+  font-size: inherit;
+}
+.dogyo-o-midashi {
+  display:inline;
+}
+.dogyo-naka-midashi {
+  display:inline;
+}
+.dogyo-ko-midashi {
+  display:inline;
+}
+.mado-o-midashi {
+  display:inline;
+}
+.mado-naka-midashi {
+  display:inline;
+}
+.mado-ko-midashi {
+  display:inline;
+}
+
+.caption {
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.complex_ruby rt.real_ruby::before {
+  content: "（";
+  }
+.complex_ruby rt.real_ruby::after {
+  content: "）";
+}
+
+.contents_invisible {
+  display: none;
+}
+.contents_visible {
+  margin-left: 2em;
+  text-indent: -1em;
+}
+
+.main img {
+  max-width: 100%;
+}

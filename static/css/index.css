@@ -1,0 +1,35 @@
+:root {
+  --aozora-theme-color: #000063;
+}
+
+.body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.main {
+  width: 22rem;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+}
+.aozora-form {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.aozora-form__input {
+  font-size: 16px;
+}
+.aozora-form__button {
+  font-size: 16px;
+  background: var(--aozora-theme-color);
+  border: 1px solid var(--aozora-theme-color);
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    width: 40rem;
+  }
+}

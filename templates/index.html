@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block links %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <h1 class="title">横書き青空文庫</h1>
+    <form class="aozora-form" method="POST" action="/">
+        {{ form.csrf_token }}
+        {{ form.url(class='aozora-form__input', id='formURLInput', pattern='https?://www\.aozora\.gr\.jp/cards/(\d{6})/(?:card|files/)(\d+).*\.(?:html|zip)', autocomplete='off') }}
+        <input class="aozora-form__button" id="formPostButton" type="submit" value="Go">
+        {% if form.url.errors %}
+        <ul class="errors">
+        {% for error in form.url.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </form>
+    <p class="description">青空文庫を横書きで読むためのサイトです。本家に比べて、
+        <ul>
+            <li>画像処理してある外字を普通の文字として描画</li>
+            <li>フォントや背景色等、表示オプションを選べる</li>
+        </ul>
+        ようにしてあります。上のボックスに、青空文庫の図書カードのURLか作品ページのURL、もしくはzipファイルのURLを打ち込むと変換されます。
+    </p>
+    <p>キャッシュ機能はついていません。オフラインでは利用できません。</p>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('formURLInput').addEventListener('focus', (e) => {
+            e.target.select();
+        });
+        document.getElementById('formPostButton').addEventListener('click', () => {
+            const input = document.getElementById('formURLInput');
+            input.value = input.value.replace(/^\s+|\s+$/g, "").replace(/#.+$/, "");
+        });
+    });
+    window.addEventListener('pageshow', () => {
+        document.getElementById('formURLInput').value = '';
+    });
+</script>
+{% endblock %}

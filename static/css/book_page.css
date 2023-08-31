@@ -1,0 +1,206 @@
+:root {
+  --header-side-padding: 10px;
+  --contents-color: #ccc;
+  --contents-background: #333;
+}
+.white {
+  --background-color: #fff;
+  --font-color: #111;
+}
+.beige {
+  --background-color: #f7f1e3;
+  --font-color: #4b301a;
+}
+.gray {
+  --background-color: #4a4a4a;
+  --font-color: #d4d4d4;
+  --link-color: var(--font-color);
+}
+.black {
+  --background-color: #111;
+  --font-color: #acacac;
+  --link-color: var(--font-color);
+}
+
+.body {
+  --main-fontFamily: sans-serif;
+  --main-fontWeight: 400;
+  --main-fontSize: medium;
+  --main-margin: 10vw;
+  --main-lineHeight: 1.5;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-family: system-ui, sans-serif;
+}
+.body a {
+  color: var(--font-color);
+}
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--background-color);
+}
+.settings__input {
+  display: none;
+}
+.header__list {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin: 0;
+}
+.header__list--item:first-child {
+  padding-top: 5px;
+  padding-left: var(--header-side-padding);
+  border-bottom: 1px solid;
+}
+.settings__label {
+  font-size: 1.25rem;
+}
+.settings {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow-y: hidden;
+  border: 1px solid transparent;
+  transition: .7s ease-in-out;
+}
+.settings__input:checked ~ .settings {
+  max-height: 300px;
+  border-bottom: 1px solid;
+}
+.settings__item--fonts {
+  width: 100%;
+  padding-top: 1rem;
+}
+.settings__item--color-scheme {
+  width: 100%;
+  display: flex;
+  column-gap: .5rem;
+}
+.settings__item--others {
+  padding-bottom: 1rem;
+  display: flex;
+  column-gap: .5rem;
+}
+.color-scheme__input {
+  display: none;
+}
+.color-scheme__label {
+  display: inline-block;
+  background-color: var(--background-color);
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+}
+.contents__input {
+  display: none;
+}
+.contents__label {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  position: fixed;
+  top: 5px;
+  right: var(--header-side-padding);
+  transition: .5s ease-in-out;
+}
+.contents__input:checked ~ .contents__label {
+  transform: translateX(-20rem);
+}
+#contents {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 40;
+  width: 20rem;
+  height: 100vh;
+  background: var(--contents-background);
+  color: var(--contents-color);
+  transition: .5s ease-in-out;
+  transform: translateX(100%);
+  overflow: auto;
+  padding: 5px;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.contents__input:checked ~ #contents {
+  transform: translateX(0);
+}
+.contents__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  z-index: 30;
+}
+.contents__input:checked ~ .contents__overlay {
+  display: block;
+}
+#contents a {
+  color: var(--contents-color);
+}
+#contents > .contents_visible:nth-last-child(2) {
+  margin-top: 1rem;
+}
+#contents > .contents_visible:last-child {
+  margin-bottom: 4rem;
+}
+.main {
+  margin-top: 3rem;
+  font-family: var(--main-fontFamily);
+  font-weight: var(--main-fontWeight);
+  font-size: var(--main-fontSize);
+  margin-left: var(--main-margin);
+  margin-right: var(--main-margin);
+  line-height: var(--main-lineHeight);
+}
+.footer {
+  margin: 3rem var(--main-margin);
+}
+
+.tooltip { /* 補足説明するテキストのスタイル */
+  position: relative;
+  cursor: pointer;
+  padding: 0 .5rem;
+  font-size: 0.9em;
+  color: #4682b4;
+  text-decoration: underline;
+}
+.description_bottom { /* ツールチップのスタイル */
+  width: 150px; /* 横幅 */
+  position: absolute;
+  top: 80%; /* Y軸の位置 */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px; /* テキストとの距離 */
+  padding: 8px;
+  border-radius: 10px; /* 角の丸み */
+  background-color: var(--contents-background);
+  font-size: 0.7em;
+  color: #fff;
+  text-align: center;
+  visibility: hidden; /* ツールチップを非表示に */
+  opacity: 0; /* 不透明度を0％に */
+  z-index: 1;
+  transition: 0.5s all; /* マウスオーバー時のアニメーション速度 */
+}
+.tooltip:hover .description_bottom { /* マウスオーバー時のスタイル */
+  top: 100%; /* Y軸の位置 */
+  visibility: visible; /* ツールチップを表示 */
+  opacity: 1; /* 不透明度を100％に */
+}
+
+@media screen and (min-width: 600px) {
+  .settings__item--others {
+    column-gap: 1rem;
+  }
+}

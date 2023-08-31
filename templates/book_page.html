@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block links %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://jpafonts.osdn.jp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://jpafonts.osdn.jp/webfonts/jpafonts.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/book_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/myaozora.css') }}">
+{% endblock %}
+
+{% block content %}
+<header class="header">
+    <ul class="header__list">
+        <li class="header__list--item">
+            <label class="settings__label" for="settingsShowCheckbox"><span class="lnr lnr-cog"></span></label>
+        </li>
+        <li class="header__list--item">
+            <input id="settingsShowCheckbox" class="settings__input" type="checkbox">
+            <ul class="settings">
+                <li class="settings__item--fonts">
+                    <label>フォント
+                        <select name="fontFamily">
+                            <option value="serif">既定の明朝</option>
+                            <option value="sans-serif">既定のゴシック</option>
+                            <option value="'Noto Serif CJK JP', 'Noto Serif JP', serif">Noto Serif JP</option>
+                            <option value="'Noto Serif CJK JP Light', 'Noto Serif JP', serif" data-weight="300">Noto Serif JP Light</option>
+                            <option value="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif">Noto Sans JP</option>
+                            <option value="'Noto Sans CJK JP Light', 'Noto Sans JP', sans-serif" data-weight="300">Noto Sans JP Light</option>
+                            <option value="IPAexMincho, JPAexMincho, serif">JPAex明朝</option>
+                            <option value="IPAPMincho, JPAPMincho, serif">JPA P明朝</option>
+                            <option value="IPAexGothic, JPAexGothic, sans-serif">JPAexゴシック</option>
+                            <option value="IPAPGothic, JPAPGothic, sans-serif">JPA Pゴシック</option>
+                            <option value="'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HiraMinProN-W3', serif">ヒラギノ明朝</option>
+                            <option value="'Hiragino Kaku Gothic Pro', 'Hiragino Kaku Gothic ProN', 'HiraKakuProN-W3', sans-serif">ヒラギノ角ゴ</option>
+                            <option value="'Yu Mincho', 'YuMincho', serif">游明朝</option>
+                            <option value="'Yu Gothic', 'YuGothic', sans-serif">游ゴシック</option>
+                        </select>
+                    </label>
+                    <span class="tooltip">?<span class="description_bottom">常に使用できるのはフリーフォントであるNotoとJPAのみです。それ以外は端末に搭載されているかによります。</span></span>
+                </li>
+                <li class="settings__item--color-scheme">
+                    <label class="white color-scheme__label"><input class="color-scheme__input" type="radio" name="colorScheme" id="colorSchemeWhite" value="white"></label>
+                    <label class="beige color-scheme__label"><input class="color-scheme__input" type="radio" name="colorScheme" id="colorSchemeBeige" value="beige"></label>
+                    <label class="gray color-scheme__label"><input class="color-scheme__input" type="radio" name="colorScheme" id="colorSchemeGray" value="gray"></label>
+                    <label class="black color-scheme__label"><input class="color-scheme__input" type="radio" name="colorScheme" id="colorSchemeBlack" value="black"></label>
+                </li>
+                <li class="settings__item--others">
+                    <label>文字サイズ
+                        <select name="fontSize">
+                            <option value="1.5em">特大</option>
+                            <option value="1.25em">大</option>
+                            <option value="medium">中</option>
+                            <option value="0.875em">小</option>
+                            <option value="0.75em">特小</option>
+                        </select>
+                    </label>
+                    <label>余白
+                        <select name="margin">
+                            <option value="extraBroad">とても広い</option>
+                            <option value="broad">広い</option>
+                            <option value="medium">標準</option>
+                            <option value="narrow">狭い</option>
+                            <option value="extraNarrow">とても狭い</option>
+                        </select>
+                    </label>
+                    <label>行間
+                        <select name="lineHeight">
+                            <option value="2">広い</option>
+                            <option value="1.8">やや広い</option>
+                            <option value="1.5">標準</option>
+                            <option value="1.2">狭い</option>
+                        </select>
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<main class="main">
+    <input id="contentsShowCheckbox" class="contents__input" type="checkbox">
+    <label class="contents__label" for="contentsShowCheckbox"><span class="lnr lnr-list"></span></label>
+    <label class="contents__overlay" for="contentsShowCheckbox"></label>
+    {{ book_content|safe }}
+</main>
+<footer class="footer">
+    <p><a href="https://www.aozora.gr.jp/cards/{{ author_ID }}/card{{ book_ID }}.html">青空文庫　図書カードへ</a>　<a href="/">サイトトップへ</a></p>
+</footer>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/jquery-1.4.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/contents.js') }}"></script>
+<script src="{{ url_for('static', filename='js/book_page.js') }}"></script>
+{% endblock %}1

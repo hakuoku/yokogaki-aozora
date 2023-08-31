@@ -1,9 +1,9 @@
-FROM python:3.11 AS builder
+FROM python:3.11.5-bookworm AS builder
 COPY requirements.txt /
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
-FROM ruby:3.1.3
+FROM ruby:3.1.4-bookworm
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /usr/local/lib /usr/local/lib
 RUN gem update --system \
